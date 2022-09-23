@@ -1,0 +1,13 @@
+---
+- name: Server Details
+  hosts: all
+  remote_user: root
+  
+  tasks: 
+  - name: Installing wget
+    yum: pkg=wget state=present
+
+  - name: Ensure httpd is running.
+    service:
+      name: httpd
+      state: started
