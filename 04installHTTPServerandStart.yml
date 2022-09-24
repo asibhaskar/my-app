@@ -4,9 +4,9 @@
   remote_user: root
   tasks:
     - name: Copy index file 
-      ansible.builtin.copy:
-      src: /root/index.html
-      dest: /var/www/html/index.html
+      copy:
+        src: /root/index.html
+        dest: /var/www/html/index.html
       
     - name: Start HTTP Server
       service: name=httpd enabled=yes state=started
