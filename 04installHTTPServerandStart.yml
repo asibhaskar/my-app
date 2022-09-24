@@ -5,8 +5,10 @@
   tasks:
     - name: Copy index file 
       copy:
-        src: index.html
+        src: /tmp/index.html
         dest: /var/www/html/
+         mode: push
+         delegate_to: rhel8n1
         owner: apache
         group: apache
               
