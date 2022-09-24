@@ -1,14 +1,13 @@
 #This playbbok will install HTTP server and start the server.
 ---
 - hosts: all
-  become: true
+  remote_user: root
   tasks:
-    - name: Install Apache HTTP server
-      yum: name=httpd update_cache=iyes state=latest
+    - name: Copy index file 
+      ansible.builtin.copy:
+      src: /root/index.html
+      dest: /var/www/html/index.html
+      
     - name: Start HTTP Server
       service: name=httpd enabled=yes state=started
-    - name: Insert Index Page
-      template:
-       src: /root/index.html
-       dest: /var/www/html/index.html
-...
+    
