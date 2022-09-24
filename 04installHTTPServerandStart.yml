@@ -6,9 +6,8 @@
     - name: Copy index file 
       copy:
         src: /tmp/index.html
-        dest: /var/www/html/
-         mode: push
-         delegate_to: rhel8n1
+        dest: /var/www/html/index.html
+        mode: push
         owner: apache
         group: apache
               
