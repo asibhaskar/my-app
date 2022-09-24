@@ -7,6 +7,9 @@
       copy:
         src: /tmp/index.html
         dest: /var/www/html/index.html
+        owner: apache
+        group: apache
+        mode: 0644
       
     - name: Start HTTP Server
       service: name=httpd enabled=yes state=started
