@@ -1,7 +1,7 @@
-- hosts: localhost
+- hosts: all
   become: yes
   tasks:
-   - name: Install Git
+   - name: Install git
      yum: name=git state=present
    - name: git clone
      git:
