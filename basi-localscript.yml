@@ -1,12 +1,12 @@
 ---
-- hosts: all
-  become: true
+- name: Let's copy our executable script to remote location, execute script and get result back.
+  remote_user: root
+  hosts: all
   tasks:
-  - name: Date and Time Display
-    debug:
-      var=ansible_date_time.date
-  - name: Date and Time Example in Ansible
-    debug:
-      var=ansible_date_time.time
-  - name: Timestamp example with file
-    command: touch helloworld{{ansible_date_time.date}}.log
+     - name: Transfer executable script script
+       copy: src=/home/ansible/hcscript.sh dest=/opt/ mode=0777
+     - name: Execute the script
+       command: sh /opt/hcscript.sh
+       register: output
+
+  debug: var=output.stdout_lines
