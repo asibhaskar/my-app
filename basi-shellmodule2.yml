@@ -14,5 +14,4 @@
       register: fileout
       tags: fileout
       
-    - debug: 
-        msg: "{{fileout.stderr}}"
+    - debug: var=fileout.stdout_lines
