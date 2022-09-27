@@ -4,7 +4,7 @@
   user: ansible
   tasks:   
     - name: Copy the file from mwiapp01 to mwiapp02 using Method Pull
-      tags: sync-pull
+      tags: sync-push
       synchronize:
         src: "{{ item }}"
         dest: "{{ item }}"
