@@ -1,21 +1,17 @@
 ---
-– hosts: all
-  strategy: free
-  user: ansible
-  become: yes
-  become_method: sudo
-  become_user: root
-  
-  tasks:
-    – name: Copy script collect_audit.sh
-      copy: src=collect_audit.sh dest=/home/ansible mode=0777
-    – name: Run script for audit
-      command: sh /home/ansible/collect_audit.sh
-    – name: find the output file
-      shell: (cd /home/ansible; find collect*.txt)
-      register: files_to_copy
-    – debug:
+  - hosts: all
+    become_user: root
+    tasks:
+      – name: Copy script collect_audit.sh
+        copy: src=collect_audit.sh dest=/home/ansible mode=0777
+      – name: Run script for audit
+        command: sh /home/ansible/collect_audit.sh
+      – name: find the output file
+        shell: (cd /home/ansible; find collect*.txt)
+        register: files_to_copy
+      
+      – debug:
         var: files_to_copy
-    – name: Fetch the file from remote to local
-      fetch: src=/home/ansible/{{ item }} dest=/home/ansible/ mode=0777 flat=yes
-      with_items: “{{ files_to_copy.stdout_lines }}”
+      – name: Fetch the file from remote to local
+        fetch: src=/home/ansible/{{ item }} dest=/home/ansible/ mode=0777 flat=yes
+        with_items: “{{ files_to_copy.stdout_lines }}”
