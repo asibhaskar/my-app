@@ -1,10 +1,16 @@
 ---
- - hosts: all
-   tasks:
-      - name: Fetch the file from the node1 to master
-        fetch: src=/tmp/gradle-wrapper.jar dest=/home/ansible/ flat=yes
-        when: "{{ inventory_hostname == 'node1' }}"
-
-      - name: Copy the file from master to node2
-        copy: src=/home/ansible/gradle-wrapper.jar dest=/tmp/
-        when: "{{ inventory_hostname == 'node2' }}"
+- name: Sync Pull task - Executed on  the Destination hosts
+  hosts: all
+  user: ansible
+  tasks:   
+    - name: Copy the file from node1 to node2 using Method Pull
+      tags: sync-pull
+      synchronize:
+        src: "{{ item }}"
+        dest: "{{ item }}"
+        mode: pull
+      delegate_to: all
+      register: syncfile
+      run_once: true
+      with_items:
+       - "/tmp/gradle-wrapper.jar"
