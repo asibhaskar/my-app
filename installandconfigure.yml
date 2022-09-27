@@ -7,9 +7,8 @@
       - name: create username apacheadm
         user:
           name: apacheadm
-          group: users,admin
           shell: /bin/bash
-          home: /home/weblogic
+          home: /home/apacheadm
 
       - name: install httpd
         yum:
@@ -24,7 +23,6 @@
       - name: Create a username for tomcat
         user:
           name: tomcatadm
-          group: users
           shell: /bin/bash
           home: /home/tomcat
 
@@ -32,6 +30,5 @@
         file:
           path: /opt/oracle
           owner: tomcatadm
-          group: users
           state: present
           mode: 0755
