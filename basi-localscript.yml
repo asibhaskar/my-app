@@ -1,0 +1,7 @@
+--- 
+- hosts: all 
+  become_user: root 
+  
+  tasks: 
+    - name: Execute remote script 
+      script: /home/ansible/hcscript.sh
