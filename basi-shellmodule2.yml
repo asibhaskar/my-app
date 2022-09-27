@@ -14,4 +14,4 @@
       register: fileout
       tags: fileout
       
-    - debug: var=out.stdout_lines
+    - debug: var=fileout.stdout_lines
