@@ -1,6 +1,7 @@
 ---
   - name: Shell Examples
     hosts: all
+    become: yes
     tasks:
 
     - name: Dir list and write to file
