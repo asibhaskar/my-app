@@ -1,9 +1,11 @@
+---
 – hosts: all
   strategy: free
   user: ansible
   become: yes
   become_method: sudo
   become_user: root
+  
   tasks:
     – name: Copy script collect_audit.sh
       copy: src=collect_audit.sh dest=/home/ansible mode=0777
