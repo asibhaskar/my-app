@@ -15,4 +15,4 @@
       tags: fileout
       
     - debug:
-        msg: " fileoutput found {{ fileout.stdout-lines | quote }}"
+        msg: " {{ fileout.stdout-lines }} "
