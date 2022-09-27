@@ -1,7 +1,7 @@
 ---
-- hosts: all
-
-    tasks:
+ - hosts: all
+   become: yes
+   tasks:
       - name: Fetch the file from the node1 to master
         fetch: src=/tmp/gradle-wrapper.jar dest=buffer/ flat=yes
         when: "{{ inventory_hostname == 'node1' }}"
