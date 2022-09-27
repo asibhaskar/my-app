@@ -3,7 +3,7 @@
     become_user: root
     tasks:
       – name: Copy script collect_audit.sh
-        copy: src=collect_audit.sh dest=/home/ansible mode=0777
+        copy: src=/home/ansible/collect_audit.sh dest=/home/ansible mode=0777
       – name: Run script for audit
         command: sh /home/ansible/collect_audit.sh
       – name: find the output file
