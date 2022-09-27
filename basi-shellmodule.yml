@@ -5,7 +5,7 @@
 
     - name: Dir list and write to file
       shell:
-         " ls -lrt /apps|awk '{print $9}'|sed '/^$/d' > /tmp/dirlist.txt "
+         " ls -lrt /opt|awk '{print $9}'|sed '/^$/d' > /tmp/dirlist.txt "
       register: lsout
       tags: lsout
 
