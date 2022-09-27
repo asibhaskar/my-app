@@ -1,14 +1,21 @@
 ---
-- name: Transfer and execute a script.
-  hosts: all
-  remote_user: ansible
-  become: yes
+- hosts:
+  become: true
   tasks:
-     - name: Transfer the script
-       copy: src=hcscript.sh dest=/home/ansible mode=0777
- 
-     - name: Execute the script
-       command: sh /home/ansible/hcscript.sh
-       register: output
 
-     - debug: var=output.stdout_lines
+#task for displaying the date.
+
+  - name: Date and Time Display
+    debug:
+     var=ansible_date_time.date
+
+#displays the time.
+
+  - name: Date and Time Example in Ansible
+  debug:
+   var=ansible_date_time.time
+
+#Dile based on the current date (helloworld2018-07-15.log)
+
+  - name: Timestamp example with file
+    command: touch helloworld{{ansible_date_time.date}}.log
