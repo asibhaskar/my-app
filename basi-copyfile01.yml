@@ -1,15 +1,15 @@
 ---
-- name: Sync Pull task - Executed on  the Destination hosts
-  hosts: all
+- name: Sync Pull task - Executed on  the Destination host "{{groups['appgrp'][1]}}"
+  hosts: "{{groups['appgrp'][0]}}"
   user: ansible
   tasks:   
-    - name: Copy the file from node1 to node2 using Method Pull
+    - name: Copy the file from mwiapp01 to mwiapp02 using Method Pull
       tags: sync-pull
       synchronize:
         src: "{{ item }}"
         dest: "{{ item }}"
         mode: pull
-      delegate_to: all
+      delegate_to: "{{groups['appgrp'][1]}}"
       register: syncfile
       run_once: true
       with_items:
