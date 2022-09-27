@@ -13,4 +13,5 @@
         chdir: "/etc" 
       register: fileout
       tags: fileout
-    - debug: msg="{{ fileout.stdout-lines }}"
+      
+    - debug: msg="{{ fileout.stdout-lines | quote }}"
