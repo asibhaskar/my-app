@@ -15,4 +15,4 @@
       tags: fileout
       
     - debug: 
-      msg: "{{fileout.stderr}}"
+        msg: "{{fileout.stderr}}"
