@@ -1,11 +1,10 @@
 ---
  - hosts: all
-   become: yes
    tasks:
       - name: Fetch the file from the node1 to master
-        fetch: src=/tmp/gradle-wrapper.jar dest=buffer/ flat=yes
+        fetch: src=/tmp/gradle-wrapper.jar dest=/home/ansible/ flat=yes
         when: "{{ inventory_hostname == 'node1' }}"
 
       - name: Copy the file from master to node2
-        copy: src=buffer/gradle-wrapper.jar dest=/tmp/
+        copy: src=/home/ansible/gradle-wrapper.jar dest=/tmp/
         when: "{{ inventory_hostname == 'node2' }}"
