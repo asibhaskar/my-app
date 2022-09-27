@@ -8,5 +8,4 @@
      - name: Execute the script
        command: sh /opt/hcscript.sh
        register: output
-
-  debug: var=output.stdout_lines
+       debug: var=output.stdout_lines
