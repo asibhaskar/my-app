@@ -8,7 +8,7 @@
       async: 10
       poll: 0
       shell:
-         "cat passwd"
+         "cat /etc/passwd"
       args:
         chdir: "/etc" 
       register: fileout
