@@ -1,5 +1,6 @@
 --- 
 - hosts: all
+  become_user: root
   tasks:
     - name: Run local script
       script: /home/ansible/hcscript.sh
