@@ -1,0 +1,10 @@
+---
+- name: Check "date" command if it's not "Redhat" OS
+  hosts: servers
+  tasks:
+    - name: Run "Date" Command
+      command: "date"
+      when: ansible_os_family != "Redhat"
+      register: result
+    - debug:
+        var: result.stdout_lines

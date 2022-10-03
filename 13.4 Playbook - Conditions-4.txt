@@ -1,0 +1,9 @@
+---
+- name: Condition with Variable Calculation
+  hosts: servers
+  vars:
+    number: 80
+  tasks:
+    - debug:
+        msg: "{{ number}} can divide to 8"
+      when: number%8 == 0

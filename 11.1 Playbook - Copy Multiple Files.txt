@@ -1,0 +1,13 @@
+- name: Copy multiple Files with Different Permissions In Same Managed Node
+  hosts: servers
+  tasks:
+    - name: Copy files
+      copy:
+        remote_src: true
+        src: "{{ item.src }}"
+        dest: "{{ item.dest }}"
+        mode: "{{ item.mode }}"
+      with_items:
+        - {src: '/home/test1.txt', dest: '/home/test4.txt', mode: '777' }
+        - {src: '/home/test2.txt', dest: '/home/test5.txt', mode: '707' }
+        - {src: '/home/test3.txt', dest: '/home/test6.txt', mode: '666' }

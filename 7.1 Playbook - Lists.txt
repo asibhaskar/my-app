@@ -1,0 +1,12 @@
+---
+- name: List Example
+  hosts: servers
+  vars:
+    x:
+      - Jules Verne
+      - Nemo
+      - Nautilus 
+  tasks:
+    - name: Debug message 
+      debug:
+        msg: "{{ x[2] }}"

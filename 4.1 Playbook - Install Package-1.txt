@@ -1,0 +1,8 @@
+---
+- name: Install Packages
+  hosts: servers
+  tasks:
+    - name: Install ftp package
+      apt:
+        name: ftp
+        state: present

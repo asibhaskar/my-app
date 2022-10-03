@@ -1,0 +1,10 @@
+---
+- name: Shell command Example
+  hosts: servers
+  tasks:
+    - name: Shell command
+      shell:
+        "date"
+      register: result
+    - debug:  
+       var: result.stdout

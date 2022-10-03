@@ -1,0 +1,14 @@
+- name: Dictionary with Loop
+  hosts: servers
+  vars:
+    type:
+      type1: car
+      type2: plane
+      type3: submarine
+    color:
+      color1: yellow
+      color2: blue
+  tasks:
+    - name: Debug message
+      debug: 
+        msg: ["{{type}}","{{color}}"]

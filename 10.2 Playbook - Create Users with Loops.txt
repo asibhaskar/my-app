@@ -1,0 +1,16 @@
+---
+- name: Create New Users and UID with Loop
+  hosts: servers
+  tasks:
+    - name: Create new users
+      user:
+        name: '{{ item.name }}'
+        uid: '{{ item.uid }}'
+        state: present
+      loop:
+        - name: Verne
+          uid: 1101
+        - name: Nemo
+          uid: 1102
+        - name: Nautilus
+          uid: 1103!

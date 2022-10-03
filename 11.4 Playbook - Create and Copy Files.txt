@@ -1,0 +1,16 @@
+- name: Create & Copy Files From Managed Node to Managed Node
+  hosts: servers
+  tasks:
+    - name: Create a file
+      file:
+        path: "/home/test1.txt"
+        state: touch
+        mode: 777
+    - name: Copy "test.txt" into different directory with different name
+      copy:
+        src: /home/test.txt
+        dest: /test2.txt
+        remote_src: true
+        owner: root
+        group: root
+        mode: 644

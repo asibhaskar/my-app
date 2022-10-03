@@ -1,0 +1,9 @@
+---
+- name: Change Character in Text File with Regex
+  hosts: servers
+  tasks:
+    - name: Replace content with regex
+      replace:
+        path: /home/test.txt
+        regexp: "Python"
+        replace: "Ansible"

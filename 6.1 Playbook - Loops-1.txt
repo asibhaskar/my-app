@@ -1,0 +1,11 @@
+---
+- name: Install packages with loop
+  hosts: servers
+  vars:
+    all_packages: ['nano', 'vim', 'zip']
+  tasks:
+    - name: Install all 3 of packages
+      apt: 
+        name: "{{item}}" 
+        state: latest
+      with_items: "{{ all_packages }}"

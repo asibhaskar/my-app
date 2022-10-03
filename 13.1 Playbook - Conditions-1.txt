@@ -1,0 +1,9 @@
+---
+- name: Condition with Variables
+  hosts: servers
+  vars:
+    character: "Nemo"
+  tasks:
+    - debug:
+        msg: "{{ character }} is a character from Jules Verne’s book"
+      when: character == "Nemo"

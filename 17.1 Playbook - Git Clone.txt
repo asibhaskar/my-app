@@ -1,0 +1,8 @@
+---
+- name: Git Clone Example
+  hosts: servers
+  tasks:
+    - name: Git clone 
+      git:
+        repo: https://github.com/fw876/helloworld.git
+        dest: /home/git/

@@ -1,0 +1,11 @@
+---
+- name: Prompt Example
+  hosts: servers
+  vars_prompt:
+    - name: tool
+      prompt: Which Automation tool you want to learn?
+      private: no
+  tasks:
+    - name: Print the message with debug
+      debug:
+        msg: 'Let’s start to learn {{ tool }}'

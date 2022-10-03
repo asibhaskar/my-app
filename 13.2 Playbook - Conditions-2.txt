@@ -1,0 +1,7 @@
+---
+- name: Shutdown Server if its "debian" OS
+  hosts: servers
+  tasks:
+    - name: Shutdown server 
+      command: reboot
+      when: ansible_os_family == "Debian"

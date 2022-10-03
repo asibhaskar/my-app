@@ -1,0 +1,9 @@
+- name: Restart System Services
+  hosts: servers
+  tasks:
+    - name: Restart NTP service
+      command: /usr/bin/systemctl restart ntp
+    - name: Restart UFW service
+      command: /usr/bin/systemctl restart ufw
+    - name: Restart SSH service
+      command: /usr/bin/systemctl restart ssh

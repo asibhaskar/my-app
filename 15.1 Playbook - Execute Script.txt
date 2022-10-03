@@ -1,0 +1,6 @@
+---
+- name: Execute a script
+  hosts: servers
+  tasks:
+    - name: Execute a script
+      script: test.sh

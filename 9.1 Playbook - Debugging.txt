@@ -1,0 +1,11 @@
+- name: Debugging with Loop
+  hosts: servers
+  tasks:
+    - name: Debugging with Loop
+      debug:
+        msg: "I am learning {{ item }} for network automation"	
+      with_indexed_items:
+        - "Python"
+        - "Ansible"
+        - "Chef"
+        - "Puppet"

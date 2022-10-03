@@ -1,0 +1,12 @@
+---
+- name: Dictionary Example
+  hosts: servers
+  vars:
+    x:
+      author: Jules Verne
+      character: Nemo
+      submarine: Nautilus
+  tasks:
+    - name: Debug message
+      debug: 
+          msg: "{{x}}"

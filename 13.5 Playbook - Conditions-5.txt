@@ -1,0 +1,8 @@
+---
+- name: Condition with Loop
+  hosts: servers
+  tasks:
+    - name: Find Items that are greater than 10
+      command: echo {{ number }}
+      loop: [3,4,6,8,12,3,10,23,45,1,2,0,-1,12]
+      when: number > 10

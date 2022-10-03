@@ -1,0 +1,10 @@
+---
+- name: Variables Example
+  hosts: servers 
+  vars:
+    package: nano
+  tasks:
+    - name: Install nano package
+      apt: 
+        name: "{{ package }}" 
+        state: latest

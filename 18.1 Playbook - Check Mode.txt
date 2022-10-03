@@ -1,0 +1,9 @@
+---
+- name: Check Mode Example
+  hosts: servers
+  tasks:
+    - name: Create a file
+      file:
+        state: touch
+        path: /home/test123.txt
+  check_mode: yes

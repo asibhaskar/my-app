@@ -1,0 +1,8 @@
+---
+- name: Install packages with loop
+  hosts: servers
+  tasks:
+    - name: Install all 3 of packages
+      apt:
+        name: ['nano', 'vim', 'zip']
+        state: latest

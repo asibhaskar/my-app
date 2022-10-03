@@ -1,0 +1,9 @@
+---
+- name: Variables Example
+  hosts: servers
+  vars:
+    x: Nautilus and Nemo
+  tasks:
+    - name: Debug message output
+      debug:
+        msg: "{{ x }}"

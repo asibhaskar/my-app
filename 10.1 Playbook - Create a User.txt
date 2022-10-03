@@ -1,0 +1,12 @@
+---
+- name: Create New Users with Loop
+  hosts: servers
+  tasks:
+    - name: Create new users
+      user:
+        name: '{{ item }}'
+        state: present
+      loop:
+        - Verne
+        - Nemo
+        - Nautilus
